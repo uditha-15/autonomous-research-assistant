@@ -1,4 +1,5 @@
 langchain>=0.1.0
+langchain-core>=0.1.0  # ADD THIS LINE - Required for langchain_core imports
 langchain-google-genai>=0.0.5
 chromadb>=0.4.22
 beautifulsoup4>=4.12.2
@@ -14,4 +15,3 @@ typing-extensions>=4.9.0
 flask>=3.0.0
 gunicorn>=21.2.0
 flask-cors>=4.0.0
-
