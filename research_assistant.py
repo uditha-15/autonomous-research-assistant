@@ -45,12 +45,17 @@ class AutonomousResearchAssistant:
         
         # Use LLM to identify trending domain
         from langchain_google_genai import ChatGoogleGenerativeAI
-        llm = ChatGoogleGenerativeAI(
-            model=Config.GEMINI_MODEL,
+        if Config.GEMINI_MODEL:
+            llm = ChatGoogleGenerativeAI(
+                model=Config.GEMINI_MODEL,
+                temperature=Config.TEMPERATURE,
+                google_api_key=Config.GOOGLE_API_KEY
+            )
+        else:
+            llm = ChatGoogleGenerativeAI(
             temperature=Config.TEMPERATURE,
             google_api_key=Config.GOOGLE_API_KEY
-        )
-        
+            )
         prompt = """
         Identify a current, trending scientific domain or research topic that would be interesting to investigate.
         Choose something that:
