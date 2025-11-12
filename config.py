@@ -10,7 +10,7 @@ class Config:
     
     # Google Gemini API
     GOOGLE_API_KEY: str = os.getenv("GOOGLE_API_KEY", "")
-    GEMINI_MODEL: str = "gemini-1.5-flash"
+    GEMINI_MODEL: str = None
     TEMPERATURE: float = 0.7
     
     # Chroma settings
