@@ -2,8 +2,7 @@
 from abc import ABC, abstractmethod
 from typing import Dict, List, Any, Optional
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_core.prompts import ChatPromptTemplate 
-from langchain.memory import ConversationBufferMemory 
+from langchain_core.prompts import ChatPromptTemplate
 from memory import ResearchMemory
 from config import Config
 import json
@@ -27,11 +26,8 @@ class BaseAgent(ABC):
             google_api_key=Config.GOOGLE_API_KEY
         )
         
-        # Agent-specific memory
-        self.agent_memory = ConversationBufferMemory(
-            memory_key="chat_history",
-            return_messages=True
-        )
+        # REMOVED: Agent-specific memory - not used, agents use self.memory (ResearchMemory) instead
+        # self.agent_memory = ConversationBufferMemory(...)
         
         # Decision log
         self.decision_log: List[Dict[str, Any]] = []
@@ -125,4 +121,3 @@ class BaseAgent(ABC):
             prompt_template=explanation_prompt,
             input_variables={}
         )
-
