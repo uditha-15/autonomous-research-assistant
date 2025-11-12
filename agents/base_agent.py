@@ -2,9 +2,8 @@
 from abc import ABC, abstractmethod
 from typing import Dict, List, Any, Optional
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain.chains import LLMChain
-from langchain.memory import ConversationBufferMemory
+from langchain_core.prompts import ChatPromptTemplate 
+from langchain.memory import ConversationBufferMemory 
 from memory import ResearchMemory
 from config import Config
 import json
