@@ -18,13 +18,20 @@ class BaseAgent(ABC):
         self.name = name
         self.role = role
         self.memory = memory
-        
+
         # Initialize LLM
-        self.llm = ChatGoogleGenerativeAI(
-            model=Config.GEMINI_MODEL,
-            temperature=Config.TEMPERATURE,
-            google_api_key=Config.GOOGLE_API_KEY
-        )
+        if Config.GEMINI_MODEL:
+            self.llm = ChatGoogleGenerativeAI(
+                model=Config.GEMINI_MODEL,
+                temperature=Config.TEMPERATURE,
+                google_api_key=Config.GOOGLE_API_KEY
+            )
+        else:
+            # Use default free model
+            self.llm = ChatGoogleGenerativeAI(
+                temperature=Config.TEMPERATURE,
+                google_api_key=Config.GOOGLE_API_KEY
+            )
         
         # REMOVED: Agent-specific memory - not used, agents use self.memory (ResearchMemory) instead
         # self.agent_memory = ConversationBufferMemory(...)
