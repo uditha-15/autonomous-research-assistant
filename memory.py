@@ -3,7 +3,6 @@ import chromadb
 from chromadb.config import Settings
 from typing import List, Dict, Optional, Any
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
-from langchain.schema import Document
 import json
 from datetime import datetime
 from config import Config
